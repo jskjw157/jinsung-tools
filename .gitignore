@@ -1,0 +1,5 @@
+.DS_Store
+.agent/
+scratch/
+design-system/
+*.log

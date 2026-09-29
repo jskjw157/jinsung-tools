@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jinsung-tools.vercel.app/sitemap.xml

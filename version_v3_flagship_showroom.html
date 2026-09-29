@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[후보3] 진성공구철물 · 진성전기조명 | 플래그십 인더스트리얼 쇼룸</title>
+  <meta name="description" content="안성기계공구상가 최대 규모. 디월트, 밀워키, LS산전 차단기, 초경 롱홀소 공식 취급 플래그십 유통상사.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            flagship: {
+              black: '#0D0E11',
+              charcoal: '#181A20',
+              card: '#22252D',
+              border: '#2E323D',
+              red: '#E11D48',
+              amber: '#F59E0B',
+              blue: '#0284C7',
+              gray: '#94A3B8'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Pretendard', sans-serif;
+      word-break: keep-all;
+      background-color: #0D0E11;
+      color: #F8FAFC;
+    }
+    .ticker-smooth {
+      animation: ticker 25s linear infinite;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
+</head>
+<body class="selection:bg-amber-500 selection:text-black pb-24 md:pb-0">
+
+  <!-- Version Selector Banner (후보 비교 바) -->
+  <div class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-slate-950 font-bold text-xs py-2 px-4 shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="bg-black text-amber-400 px-2 py-0.5 rounded text-[11px] font-black">디자인 후보 비교</span>
+        <span>지금 보시는 화면은 <strong>[후보 2: 플래그십 쇼룸 스타일]</strong>입니다.</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="./index.html" class="bg-black hover:bg-slate-900 text-white px-3 py-1 rounded text-[11px] font-bold transition">
+          ◀ 기존 [후보 1: 볼드 다크] 보기
+        </a>
+        <a href="./version_v2_light_corporate.html" class="bg-white hover:bg-slate-100 text-slate-900 px-3 py-1 rounded text-[11px] font-bold transition">
+          [후보 3: 클린 B2B] 보기 ▶
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main GNB -->
+  <header class="bg-flagship-charcoal/90 backdrop-blur-md border-b border-flagship-border sticky top-8 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3.5 group">
+        <div class="w-12 h-12 rounded-xl bg-flagship-black border border-flagship-border flex items-center justify-center p-1 group-hover:border-amber-400 transition">
+          <img src="./images/profile.jpg" alt="로고" class="w-full h-full object-cover rounded-lg" onerror="this.style.display='none';">
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xl font-black tracking-tight text-white">진성공구철물</span>
+            <span class="text-amber-500 font-black">X</span>
+            <span class="text-xl font-black tracking-tight text-sky-400">진성전기조명</span>
+          </div>
+          <p class="text-[11px] font-semibold text-flagship-gray tracking-wider">안성기계공구상가 · 대규모 산업자재 플래그십 유통상사</p>
+        </div>
+      </a>
+
+      <!-- Nav Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-bold text-slate-300">
+        <a href="#showroom" class="hover:text-amber-400 transition">매장 쇼룸 둘러보기</a>
+        <a href="#specialty" class="hover:text-amber-400 transition">핵심 특화 분야</a>
+        <a href="#brands" class="hover:text-amber-400 transition">브랜드 파트너</a>
+        <a href="#calculator" class="hover:text-amber-400 transition">간편 견적 계산기</a>
+        <a href="#location" class="hover:text-amber-400 transition">오시는 길·주차</a>
+      </nav>
+
+      <!-- Hotline CTA -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="tel:01037847643" class="px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-sm rounded-xl transition shadow-lg shadow-amber-500/10 flex items-center gap-2">
+          <i data-lucide="phone-call" class="w-4 h-4"></i>
+          <span>010-3784-7643</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section (Flagship Impact) -->
+  <section id="hero" class="relative py-16 md:py-24 overflow-hidden border-b border-flagship-border">
+    <!-- Ambient glow -->
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-flagship-card border border-flagship-border text-xs font-bold text-amber-400">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>경기 남부 산업 현장 최우선 직배송 & 대형 주차장 완비</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight">
+            압도적 실재고.<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500">공구와 전기자재를</span><br>
+            한곳에서 즉시 끝냅니다.
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+            안성기계공구상가 내 최대 규모 실재고 보유!
+            <strong>매일 새벽 06:30 오픈</strong>하여 출근길 자재 픽업부터 당일 현장 직배송, LS산전 차단기·초경 홀소 전 규격까지 완벽 지원합니다.
+          </p>
+
+          <!-- Quick Metrics -->
+          <div class="grid grid-cols-3 gap-3 pt-2">
+            <div class="bg-flagship-card/90 border border-flagship-border p-4 rounded-2xl">
+              <span class="text-xs text-flagship-gray font-medium">오픈 시간</span>
+              <p class="text-xl font-black text-amber-400 mt-1">06:30 AM</p>
+              <span class="text-[11px] text-slate-400">새벽 조기 출근 대응</span>
+            </div>
+            <div class="bg-flagship-card/90 border border-flagship-border p-4 rounded-2xl">
+              <span class="text-xs text-flagship-gray font-medium">취급 품목</span>
+              <p class="text-xl font-black text-sky-400 mt-1">3,000+ 종</p>
+              <span class="text-[11px] text-slate-400">상시 실재고 완비</span>
+            </div>
+            <div class="bg-flagship-card/90 border border-flagship-border p-4 rounded-2xl">
+              <span class="text-xs text-flagship-gray font-medium">주차 공간</span>
+              <p class="text-xl font-black text-emerald-400 mt-1">1톤·5톤</p>
+              <span class="text-[11px] text-slate-400">화물차 전용 상차</span>
+            </div>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-3">
+            <a href="sms:01037847643?body=안녕하세요 진성공구철물 자재 견적 문의드립니다." class="px-7 py-4 bg-amber-500 hover:bg-amber-400 text-black font-black text-sm rounded-xl shadow-lg transition flex items-center gap-2">
+              <i data-lucide="message-square" class="w-4 h-4"></i>
+              <span>문자로 빠른 견적 요청하기</span>
+            </a>
+            <a href="tel:0316710409" class="px-6 py-4 bg-flagship-card hover:bg-flagship-border border border-flagship-border text-white font-bold text-sm rounded-xl transition flex items-center gap-2">
+              <i data-lucide="phone" class="w-4 h-4 text-sky-400"></i>
+              <span>매장 전화 (031-671-0409)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Real Exterior Photo Spotlight -->
+        <div class="lg:col-span-5">
+          <div class="relative rounded-3xl overflow-hidden border border-flagship-border bg-flagship-card shadow-2xl group">
+            <div class="aspect-[4/3] overflow-hidden bg-slate-900">
+              <img src="./images/web/store_18.webp" alt="매장 전면 실사" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            </div>
+            <div class="p-6 bg-flagship-charcoal border-t border-flagship-border space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="px-3 py-1 rounded-md text-xs font-bold bg-amber-500 text-black">100% 매장 실제 사진</span>
+                <span class="text-xs text-slate-400">안성기계공구상가</span>
+              </div>
+              <h3 class="font-bold text-white text-base">진성공구철물 · 진성전기조명 전경</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                경기도 안성시 미양면 신두만곡로 927-14 (대형 화물차 및 승용차가 바로 주차하고 상차할 수 있는 전용 주차장 확보)
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Rolling Brands Ticker -->
+  <div class="bg-flagship-black border-b border-flagship-border py-4 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 flex items-center gap-6 text-xs text-slate-400 font-bold">
+      <span class="text-amber-400 shrink-0 flex items-center gap-1.5 font-bold">
+        <i data-lucide="shield-check" class="w-4 h-4"></i> 공식 파트너
+      </span>
+      <div class="overflow-hidden whitespace-nowrap w-full">
+        <div class="inline-flex gap-8 ticker-smooth text-slate-300 text-sm font-bold uppercase tracking-wider">
+          <span>DEWALT 디월트</span>
+          <span>•</span>
+          <span>MILWAUKEE 밀워키</span>
+          <span>•</span>
+          <span>MAKITA 마키타</span>
+          <span>•</span>
+          <span>BOSCH 보쉬</span>
+          <span>•</span>
+          <span>KEYANG 계양전기</span>
+          <span>•</span>
+          <span>LS ELECTRIC 차단기</span>
+          <span>•</span>
+          <span>HANYOUNG NUX 한영넉스</span>
+          <span>•</span>
+          <span>3M 산업안전</span>
+          <span>•</span>
+          <span>MORSE 미국 모스 홀소</span>
+          <span>•</span>
+          <span>HANIL 한일전기</span>
+          <span>•</span>
+          <span>동우 초경 롱홀소</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Real Store Tour Showroom (Interactive Gallery) -->
+  <section id="showroom" class="py-20 bg-flagship-charcoal border-b border-flagship-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div class="space-y-3">
+          <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Real Store Tour</span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white">매장 실재고 현장 갤러리</h2>
+          <p class="text-slate-400 text-sm">실제 매장에 진열된 3,000여 종의 재고 상태를 직접 확인하세요.</p>
+        </div>
+        <div class="text-xs text-slate-400 bg-flagship-card px-4 py-2 rounded-xl border border-flagship-border">
+          새벽 06:30 오픈 | 당일 상차 즉시 지원
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Showcase 1 -->
+        <div class="bg-flagship-card rounded-2xl overflow-hidden border border-flagship-border group">
+          <div class="aspect-[16/11] overflow-hidden bg-black">
+            <img src="./images/web/store_01.webp" alt="LS산전 차단기" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between text-xs text-sky-400 font-bold mb-2">
+              <span>LS ELECTRIC 공식</span>
+              <span>15A~225A 전 규격</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">배선용차단기(MCCB) & 누전차단기(ELB)</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              벽면 전체를 채운 대형 차단기 재고. 공장 및 건설 현장의 규격별 차단기를 당일 즉시 수령하실 수 있습니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Showcase 2 -->
+        <div class="bg-flagship-card rounded-2xl overflow-hidden border border-flagship-border group">
+          <div class="aspect-[16/11] overflow-hidden bg-black">
+            <img src="./images/web/store_16.webp" alt="초경 롱홀소" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between text-xs text-emerald-400 font-bold mb-2">
+              <span>동우 · 미국 MORSE</span>
+              <span>정밀 치수 완비</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">초경 롱홀소 & 바이메탈 홀소</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              동우 DH-317 하이스, DH-412 초경 롱홀소부터 수입 MORSE 홀소, 엔드밀, 카운터싱크까지 전 치수 구비.
+            </p>
+          </div>
+        </div>
+
+        <!-- Showcase 3 -->
+        <div class="bg-flagship-card rounded-2xl overflow-hidden border border-flagship-border group">
+          <div class="aspect-[16/11] overflow-hidden bg-black">
+            <img src="./images/web/store_05.webp" alt="전동공구 진열" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between text-xs text-amber-400 font-bold mb-2">
+              <span>디월트 · 밀워키 · 마키타</span>
+              <span>100% 정품 보증</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">충전 임팩 드라이버 & 해머드릴</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              18V/20V 고출력 충전공구 풀세트 및 베어툴, 정품 배터리 상시 보유. 본사 AS 접수 대행까지 완벽 지원.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Quick Quote Calculator (실무 기능 탑재) -->
+  <section id="calculator" class="py-20 bg-flagship-black border-b border-flagship-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center space-y-3 mb-12">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Instant B2B Quote</span>
+        <h2 class="text-3xl font-black text-white">현장 자재 빠른 견적 신청기</h2>
+        <p class="text-slate-400 text-sm">필요하신 품목을 선택하시면 대표님 직통 문자(010-3784-7643)로 견적 요청이 즉시 완성됩니다.</p>
+      </div>
+
+      <div class="bg-flagship-card border border-flagship-border rounded-3xl p-6 sm:p-10 shadow-2xl space-y-6">
+        
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1.5">상호명 (또는 현장명)</label>
+            <input type="text" id="calc-company" placeholder="예: (주)안성종합건설 / 미양공장 설비팀" class="w-full bg-flagship-charcoal border border-flagship-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-400">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1.5">담당자 연락처</label>
+            <input type="tel" id="calc-phone" placeholder="010-0000-0000" class="w-full bg-flagship-charcoal border border-flagship-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-400">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1.5">필요한 자재 품목 및 수량</label>
+          <textarea id="calc-items" rows="4" placeholder="예:&#10;1. LS산전 누전차단기 30A 20개&#10;2. CV 2.5sq 2C 전선 2롤&#10;3. 초경 롱홀소 35mm, 45mm 각 2개&#10;4. 디월트 20V 브러쉬리스 해머드릴 세트 1대" class="w-full bg-flagship-charcoal border border-flagship-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-400"></textarea>
+        </div>
+
+        <div class="pt-2 flex flex-col sm:flex-row gap-3">
+          <button onclick="sendCalculatedQuote()" class="flex-1 py-4 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black rounded-xl text-sm transition flex items-center justify-center gap-2 shadow-lg">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>대표님 문자로 견적서 즉시 전송</span>
+          </button>
+          <a href="tel:01037847643" class="px-6 py-4 bg-flagship-charcoal hover:bg-slate-800 border border-flagship-border text-white font-bold rounded-xl text-sm transition flex items-center justify-center gap-2">
+            <i data-lucide="phone" class="w-4 h-4 text-sky-400"></i>
+            <span>010-3784-7643 전화문의</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Location Section -->
+  <section id="location" class="py-16 bg-flagship-charcoal text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div class="space-y-4">
+          <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Location</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white">오시는 길 & 매장 전용 주차장</h2>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            경기도 안성시 미양면 신두만곡로 927-14 (안성기계공구상가 내 진성공구철물 · 진성전기조명)
+          </p>
+          <div class="p-4 bg-flagship-card rounded-xl border border-flagship-border space-y-2 text-xs">
+            <div class="flex justify-between">
+              <span class="text-slate-400">평일(월~금) 영업시간:</span>
+              <span class="font-bold text-amber-400">06:30 ~ 18:30 (새벽 조기오픈)</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">토요일 영업시간:</span>
+              <span class="font-bold text-amber-400">06:30 ~ 16:00</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">매장 직통 / 팩스:</span>
+              <span class="font-bold text-white">TEL. 031-671-0409 / FAX. 031-677-0983</span>
+            </div>
+          </div>
+          <div class="flex gap-3 pt-2">
+            <a href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%95%88%EC%84%B1%EC%8B%9C%20%EB%AF%B8%EC%96%91%EB%A9%B4%20%EC%8B%A0%EB%91%90%EB%A7%8C%EA%B3%A1%EB%A1%9C%20927-14" target="_blank" class="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+              <i data-lucide="navigation" class="w-3.5 h-3.5"></i> 네이버 지도
+            </a>
+            <a href="https://map.kakao.com/?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%95%88%EC%84%B1%EC%8B%9C%20%EB%AF%B8%EC%96%91%EB%A9%B4%20%EC%8B%A0%EB%91%90%EB%A7%8C%EA%B3%A1%EB%A1%9C%20927-14" target="_blank" class="px-4 py-2.5 bg-yellow-400 text-black hover:bg-yellow-300 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+              <i data-lucide="map" class="w-3.5 h-3.5"></i> 카카오맵
+            </a>
+          </div>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden border border-flagship-border bg-black aspect-video relative">
+          <img src="./images/web/store_17.webp" alt="매장 앞 주차장" class="w-full h-full object-cover">
+          <div class="absolute bottom-3 left-3 right-3 bg-black/80 backdrop-blur-md p-3 rounded-lg text-xs">
+            <span class="text-amber-400 font-bold block">1톤~5톤 화물차 진입 및 주차장 완비</span>
+            <span class="text-slate-400 text-[11px]">매장 바로 앞 대형 주차공간에서 대기 없이 즉시 상차 가능</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile Floating Action Bar -->
+  <div class="fixed bottom-0 inset-x-0 bg-flagship-card border-t border-flagship-border p-2.5 md:hidden z-50 flex items-center gap-2">
+    <a href="tel:01037847643" class="flex-1 py-3 bg-flagship-charcoal text-amber-400 font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 border border-flagship-border">
+      <i data-lucide="phone-call" class="w-4 h-4"></i> 전화 상담
+    </a>
+    <a href="sms:01037847643?body=안녕하세요 진성공구철물 자재 견적 문의드립니다." class="flex-1 py-3 bg-amber-500 text-black font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow">
+      <i data-lucide="message-square" class="w-4 h-4"></i> 문자 견적
+    </a>
+  </div>
+
+  <script>
+    if (window.lucide) window.lucide.createIcons();
+
+    function sendCalculatedQuote() {
+      const company = document.getElementById('calc-company')?.value || '현장';
+      const phone = document.getElementById('calc-phone')?.value || '';
+      const items = document.getElementById('calc-items')?.value || '';
+
+      if (!items) {
+        alert('필요한 자재 품목을 입력해 주세요.');
+        document.getElementById('calc-items')?.focus();
+        return;
+      }
+
+      const msg = `[진성공구철물 견적문의]\n상호/현장: ${company}\n연락처: ${phone}\n\n[문의품목]\n${items}`;
+      window.location.href = `sms:01037847643?body=${encodeURIComponent(msg)}`;
+    }
+  </script>
+</body>
+</html>
