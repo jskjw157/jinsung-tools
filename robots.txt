@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://jinsung-tools.vercel.app/sitemap.xml
+Sitemap: https://jinsungtool.co.kr/sitemap.xml
