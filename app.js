@@ -76,7 +76,7 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// Handle Quote Submission
+// Handle Quote Submission (Dispatches directly to owner's phone & copies to clipboard)
 function handleQuoteSubmit(e) {
   e.preventDefault();
   
@@ -86,38 +86,53 @@ function handleQuoteSubmit(e) {
   const items = document.getElementById('quote-items')?.value || '';
   const deliveryType = document.querySelector('input[name="delivery-type"]:checked')?.value === 'pickup' ? '매장 방문 픽업' : '현장 화물 직배송';
 
-  const quoteData = {
-    company,
-    contact,
-    phone,
-    items,
-    deliveryType,
-    submittedAt: new Date().toISOString()
-  };
+  if (!items) {
+    alert('필요한 품목 및 수량을 먼저 입력해 주세요.');
+    document.getElementById('quote-items')?.focus();
+    return;
+  }
 
-  // Save to localStorage as a record
+  const quoteMessage = `[진성공구철물 도매견적 신청]\n• 상호/현장: ${company || '현장'}\n• 담당자: ${contact || '담당자'}\n• 연락처: ${phone}\n• 수령방식: ${deliveryType}\n\n[신청품목]\n${items}`;
+  const targetNumber = '01037847643';
+
+  // 1. Save to localStorage as backup record
   try {
     const existing = JSON.parse(localStorage.getItem('jinsung_quotes') || '[]');
-    existing.push(quoteData);
+    existing.push({ company, contact, phone, items, deliveryType, submittedAt: new Date().toISOString() });
     localStorage.setItem('jinsung_quotes', JSON.stringify(existing));
   } catch (err) {
     console.error('Storage error:', err);
   }
 
+  // 2. Copy formatted text to clipboard
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(quoteMessage).catch(() => {});
+  }
+
   closeQuoteModal();
-  showToast(`견적 요청이 정상 접수되었습니다. 남겨주신 연락처(${phone})로 신속히 회신드리겠습니다.`);
+
+  // 3. Dispatch to representative
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  if (isMobile) {
+    window.location.href = `sms:${targetNumber}?body=${encodeURIComponent(quoteMessage)}`;
+    showToast(`견적서 내용이 문자 앱으로 연결되었습니다. [전송]을 누르시면 대표님께 즉시 발송됩니다.`);
+  } else {
+    showToast(`견적서 내용이 클립보드에 복사되었습니다. 대표님 카톡이나 문자로 전송해 주세요.`);
+    openKakaoInquiry(quoteMessage);
+  }
   
   // Reset form
   const form = document.getElementById('quote-form');
   if (form) form.reset();
 }
 
-// Direct SMS Quote Generator (Works seamlessly on mobile & copies on PC)
+// Direct SMS Quote Generator
 function sendQuoteViaSms() {
   const company = document.getElementById('company-name')?.value || '';
   const contact = document.getElementById('contact-name')?.value || '';
   const phone = document.getElementById('contact-phone')?.value || '';
   const items = document.getElementById('quote-items')?.value || '';
+  const deliveryType = document.querySelector('input[name="delivery-type"]:checked')?.value === 'pickup' ? '매장 방문 픽업' : '현장 화물 직배송';
 
   if (!items) {
     alert('필요한 품목 및 수량을 먼저 입력해 주세요.');
@@ -125,17 +140,76 @@ function sendQuoteViaSms() {
     return;
   }
 
-  const message = `[진성공구철물 견적문의]\n상호/현장: ${company || '현장'}\n담당자: ${contact || '담당자'}\n연락처: ${phone}\n\n[문의품목]\n${items}`;
+  const message = `[진성공구철물 견적문의]\n• 상호/현장: ${company || '현장'}\n• 담당자: ${contact || '담당자'}\n• 연락처: ${phone}\n• 수령방식: ${deliveryType}\n\n[문의품목]\n${items}`;
   const targetNumber = '01037847643';
   
-  // 1. Copy formatted text to clipboard (works on both PC & mobile)
-  navigator.clipboard.writeText(message).catch(() => {});
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(message).catch(() => {});
+  }
 
-  // 2. Open SMS composer (opens native messaging app on smartphones)
   window.location.href = `sms:${targetNumber}?body=${encodeURIComponent(message)}`;
-
-  // 3. User feedback toast
   showToast(`문자 앱으로 연결합니다. (PC 이용 시 내용이 클립보드에 복사되었습니다)`);
+}
+
+// Send Quote via KakaoTalk
+function sendQuoteViaKakao() {
+  const company = document.getElementById('company-name')?.value || '';
+  const contact = document.getElementById('contact-name')?.value || '';
+  const phone = document.getElementById('contact-phone')?.value || '';
+  const items = document.getElementById('quote-items')?.value || '';
+  const deliveryType = document.querySelector('input[name="delivery-type"]:checked')?.value === 'pickup' ? '매장 방문 픽업' : '현장 화물 직배송';
+
+  if (!items) {
+    alert('필요한 품목 및 수량을 먼저 입력해 주세요.');
+    document.getElementById('quote-items')?.focus();
+    return;
+  }
+
+  const message = `[진성공구철물 견적신청]\n• 상호/현장: ${company || '현장'}\n• 담당자: ${contact || '담당자'}\n• 연락처: ${phone}\n• 수령방식: ${deliveryType}\n\n[신청품목]\n${items}`;
+  
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(message).catch(() => {});
+  }
+
+  closeQuoteModal();
+  openKakaoInquiry(message);
+}
+
+// KakaoTalk Inquiry Modal Controls
+function openKakaoInquiry(prefilledText = '') {
+  const modal = document.getElementById('kakao-modal');
+  if (modal) {
+    const copyBox = document.getElementById('kakao-copy-box');
+    const msgElem = document.getElementById('kakao-prefilled-text');
+    if (prefilledText && msgElem && copyBox) {
+      msgElem.textContent = prefilledText;
+      copyBox.classList.remove('hidden');
+    } else if (copyBox) {
+      copyBox.classList.add('hidden');
+    }
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    if (window.lucide) window.lucide.createIcons();
+  }
+}
+
+function closeKakaoModal() {
+  const modal = document.getElementById('kakao-modal');
+  if (modal) {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+}
+
+function copyKakaoNumber() {
+  const num = '010-3784-7643';
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(num).then(() => {
+      showToast('대표님 직통 번호(010-3784-7643)가 복사되었습니다!');
+    }).catch(() => {
+      showToast('번호: 010-3784-7643');
+    });
+  }
 }
 
 // FAQ Accordion Toggle
