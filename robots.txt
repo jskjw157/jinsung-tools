@@ -3,3 +3,5 @@ Allow: /
 
 # Sitemap
 Sitemap: https://jinsungtool.co.kr/sitemap.xml
+# RSS
+# https://jinsungtool.co.kr/rss.xml
