@@ -61,18 +61,23 @@ function closeQuoteModal() {
   }
 }
 
-// Close modal on backdrop click
+// Close modals on backdrop click
 document.addEventListener('click', (e) => {
-  const modal = document.getElementById('quote-modal');
-  if (modal && e.target === modal) {
+  const quoteModal = document.getElementById('quote-modal');
+  if (quoteModal && e.target === quoteModal) {
     closeQuoteModal();
+  }
+  const kakaoModal = document.getElementById('kakao-modal');
+  if (kakaoModal && e.target === kakaoModal) {
+    closeKakaoModal();
   }
 });
 
-// Close modal on Escape key
+// Close modals on Escape key
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeQuoteModal();
+    closeKakaoModal();
   }
 });
 
@@ -198,6 +203,30 @@ function closeKakaoModal() {
   if (modal) {
     modal.classList.add('hidden');
     document.body.style.overflow = '';
+  }
+}
+
+// Launch KakaoTalk with smart PC & Mobile support
+function launchKakaoTalk() {
+  const kakaoUrl = window.JINSUNG_KAKAO_URL || '';
+  if (kakaoUrl) {
+    window.open(kakaoUrl, '_blank');
+    return;
+  }
+
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  if (isMobile) {
+    window.location.href = 'kakaotalk://';
+    showToast('카카오톡 앱으로 연결합니다.');
+  } else {
+    // On PC, copy phone number and highlight the PC guidance box
+    copyKakaoNumber();
+    const pcGuide = document.getElementById('pc-kakao-guide');
+    if (pcGuide) {
+      pcGuide.classList.add('ring-2', 'ring-amber-500');
+      setTimeout(() => pcGuide.classList.remove('ring-2', 'ring-amber-500'), 3000);
+    }
+    showToast('대표님 직통 번호(010-3784-7643)가 복사되었습니다! PC 카톡 [친구 추가 > 연락처]에 붙여넣어 주세요.');
   }
 }
 
