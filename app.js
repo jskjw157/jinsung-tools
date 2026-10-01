@@ -98,7 +98,7 @@ function handleQuoteSubmit(e) {
   }
 
   const quoteMessage = `[진성공구철물 도매견적 신청]\n• 상호/현장: ${company || '현장'}\n• 담당자: ${contact || '담당자'}\n• 연락처: ${phone}\n• 수령방식: ${deliveryType}\n\n[신청품목]\n${items}`;
-  const targetNumber = '01037847643';
+  const targetNumber = '0316710409';
 
   // 1. Save to localStorage as backup record
   try {
@@ -146,7 +146,7 @@ function sendQuoteViaSms() {
   }
 
   const message = `[진성공구철물 견적문의]\n• 상호/현장: ${company || '현장'}\n• 담당자: ${contact || '담당자'}\n• 연락처: ${phone}\n• 수령방식: ${deliveryType}\n\n[문의품목]\n${items}`;
-  const targetNumber = '01037847643';
+  const targetNumber = '0316710409';
   
   if (navigator.clipboard) {
     navigator.clipboard.writeText(message).catch(() => {});
@@ -226,17 +226,17 @@ function launchKakaoTalk() {
       pcGuide.classList.add('ring-2', 'ring-amber-500');
       setTimeout(() => pcGuide.classList.remove('ring-2', 'ring-amber-500'), 3000);
     }
-    showToast('대표님 직통 번호(010-3784-7643)가 복사되었습니다! PC 카톡 [친구 추가 > 연락처]에 붙여넣어 주세요.');
+    showToast('매장 대표 번호(031-671-0409)가 복사되었습니다! PC 카톡 [친구 추가 > 연락처]에 붙여넣어 주세요.');
   }
 }
 
 function copyKakaoNumber() {
-  const num = '010-3784-7643';
+  const num = '031-671-0409';
   if (navigator.clipboard) {
     navigator.clipboard.writeText(num).then(() => {
-      showToast('대표님 직통 번호(010-3784-7643)가 복사되었습니다!');
+      showToast('매장 대표 번호(031-671-0409)가 복사되었습니다!');
     }).catch(() => {
-      showToast('번호: 010-3784-7643');
+      showToast('번호: 031-671-0409');
     });
   }
 }
@@ -354,7 +354,7 @@ async function handleChatSubmit(e) {
     }
 
     const data = await response.json();
-    const replyText = data.reply || '답변을 생성하지 못했습니다. 대표님 직통(010-3784-7643)으로 문의해 주세요.';
+    const replyText = data.reply || '답변을 생성하지 못했습니다. 매장 대표(031-671-0409)으로 문의해 주세요.';
 
     appendChatMessage('assistant', replyText);
 
@@ -412,9 +412,9 @@ function appendChatMessage(role, text) {
       <div class="bg-slate-800 border border-slate-700/80 rounded-2xl rounded-tl-sm p-3 text-slate-200 space-y-2 max-w-[88%] leading-relaxed shadow-sm">
         <div>${formattedHtml}</div>
         <div class="pt-1.5 border-t border-slate-700/60 flex items-center gap-2">
-          <a href="tel:01037847643" class="inline-flex items-center gap-1 text-[11px] font-bold text-amber-400 hover:text-amber-300">
+          <a href="tel:0316710409" class="inline-flex items-center gap-1 text-[11px] font-bold text-amber-400 hover:text-amber-300">
             <i data-lucide="phone-call" class="w-3 h-3"></i>
-            <span>010-3784-7643 직통 연결</span>
+            <span>031-671-0409 매장 전화 연결</span>
           </a>
         </div>
       </div>
@@ -452,8 +452,8 @@ function generateLocalFallback(query) {
     return '매장 전면에 **1톤 화물차 전용 상하차 및 대형 주차 공간**이 완비되어 있어 자재 싣고 내리기 매우 편리합니다.';
   }
   if (q.includes('차단기') || q.includes('ls')) {
-    return '**LS산전 누전차단기(ELB) 및 배선차단기(MCCB) 15A~225A 전 규격** 상시 대량 보유 중입니다. 실시간 수량 확인은 대표님 직통(010-3784-7643)으로 연락 주시면 즉시 확인해 드립니다.';
+    return '**LS산전 누전차단기(ELB) 및 배선차단기(MCCB) 15A~225A 전 규격** 상시 대량 보유 중입니다. 실시간 수량 확인은 매장 대표(031-671-0409)으로 연락 주시면 즉시 확인해 드립니다.';
   }
-  return '네, 말씀해 주신 내용 확인했습니다! 대량 발주 및 실시간 재고·단가는 **대표님 직통 번호(010-3784-7643)**로 전화 또는 문자 주시면 가장 빠르고 정확하게 안내받으실 수 있습니다.';
+  return '네, 말씀해 주신 내용 확인했습니다! 대량 발주 및 실시간 재고·단가는 **매장 대표 번호(031-671-0409)**로 전화 또는 문자 주시면 가장 빠르고 정확하게 안내받으실 수 있습니다.';
 }
 
