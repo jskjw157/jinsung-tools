@@ -1049,6 +1049,94 @@
     </div>
   </footer>
 
+  <!-- Floating AI Chatbot Button (Desktop & Mobile) -->
+  <button id="chatbot-toggle-btn" onclick="toggleChatbot()" class="fixed bottom-36 right-4 md:bottom-24 md:right-8 z-40 h-13 px-4 py-2.5 rounded-full bg-slate-900/95 hover:bg-slate-800 text-white shadow-2xl flex items-center gap-2.5 transition transform hover:scale-105 active:scale-95 border-2 border-amber-500/80 group backdrop-blur-sm" aria-label="24시간 AI 상담">
+    <div class="relative flex items-center justify-center">
+      <i data-lucide="bot" class="w-5 h-5 text-amber-400"></i>
+      <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-slate-900 animate-pulse"></span>
+    </div>
+    <span class="text-xs font-black tracking-tight text-amber-300">24h AI 상담</span>
+  </button>
+
+  <!-- AI Chatbot Window Widget -->
+  <div id="chatbot-widget" class="fixed bottom-20 right-4 sm:bottom-24 sm:right-8 z-50 hidden w-[calc(100vw-2rem)] sm:w-[390px] h-[540px] max-h-[82vh] bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+    <!-- Header -->
+    <div class="p-3.5 bg-slate-950 border-b border-slate-800 flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-2.5">
+        <div class="relative w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400">
+          <i data-lucide="bot" class="w-4 h-4"></i>
+          <span class="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-slate-950"></span>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <h3 class="text-xs font-bold text-white">진성공구 24h AI 상담사</h3>
+            <span class="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">실시간 연동</span>
+          </div>
+          <p class="text-[10px] text-slate-400">차단기·전선·수공구·영업시간 즉시 응대</p>
+        </div>
+      </div>
+      <button onclick="toggleChatbot()" class="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+    </div>
+
+    <!-- Messages Container -->
+    <div id="chat-messages" class="flex-1 p-3.5 overflow-y-auto space-y-3 text-xs">
+      <!-- Bot Welcome Message -->
+      <div class="flex items-start gap-2">
+        <div class="w-6 h-6 rounded-md bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5 border border-amber-500/30">
+          <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+        </div>
+        <div class="bg-slate-800 border border-slate-700/80 rounded-2xl rounded-tl-sm p-3 text-slate-200 space-y-1.5 max-w-[88%] leading-relaxed">
+          <p>안녕하세요! <strong>진성공구철물 · 진성전기조명</strong> 공식 AI 상담사입니다 👷‍♂️</p>
+          <p class="text-[11px] text-slate-400">
+            필요하신 자재 규격, 영업시간(07:00 오픈), 주차, 안성/평택 현장 화물 직배송 등 무엇이든 편하게 물어보세요!
+          </p>
+        </div>
+      </div>
+
+      <!-- Quick Chips -->
+      <div id="chat-quick-chips" class="flex flex-wrap gap-1 pl-8">
+        <button onclick="sendQuickPrompt('영업시간과 화물차 주차 안내해줘')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-700 text-[11px] transition">
+          ⏰ 영업시간 & 주차
+        </button>
+        <button onclick="sendQuickPrompt('LS산전 누전차단기 규격 어떤 것들이 있나요?')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-sky-300 border border-slate-700 text-[11px] transition">
+          ⚡ LS 차단기 규격
+        </button>
+        <button onclick="sendQuickPrompt('현장 화물 직배송과 당일 픽업 가능한가요?')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-slate-700 text-[11px] transition">
+          🚚 화물 배송 / 픽업
+        </button>
+        <button onclick="sendQuickPrompt('도매 견적 신청 방법 알려줘')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-[11px] transition">
+          📝 도매 견적 신청
+        </button>
+      </div>
+    </div>
+
+    <!-- Typing Indicator (hidden by default) -->
+    <div id="chat-typing" class="hidden px-4 py-2 flex items-center gap-2 text-xs text-slate-400 bg-slate-950/60 border-t border-slate-800/60">
+      <div class="flex gap-1">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-bounce"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-bounce [animation-delay:0.2s]"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-bounce [animation-delay:0.4s]"></span>
+      </div>
+      <span class="text-[11px] text-amber-300/90 font-medium">진성 AI가 실시간 답변을 작성 중입니다...</span>
+    </div>
+
+    <!-- Input Form -->
+    <div class="p-2.5 bg-slate-950 border-t border-slate-800 shrink-0">
+      <form id="chat-form" onsubmit="handleChatSubmit(event)" class="flex items-center gap-1.5">
+        <input type="text" id="chat-input" placeholder="궁금하신 품목이나 규격을 물어보세요..." autocomplete="off" class="flex-1 bg-slate-900 border border-slate-700 focus:border-amber-500 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none transition">
+        <button type="submit" id="chat-submit-btn" class="p-2 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-xl font-bold transition shrink-0 active:scale-95 disabled:opacity-50">
+          <i data-lucide="send" class="w-4 h-4"></i>
+        </button>
+      </form>
+      <div class="mt-1.5 flex items-center justify-between text-[10px] text-slate-500 px-1">
+        <span>직통 상담: 010-3784-7643</span>
+        <span>OpenCode AI 연동</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Floating KakaoTalk Quick Button (Desktop & Mobile) -->
   <button onclick="openKakaoInquiry()" class="fixed bottom-20 right-4 md:bottom-8 md:right-8 z-40 w-14 h-14 rounded-full bg-[#FEE500] hover:bg-[#FADA0A] text-[#191919] shadow-2xl flex items-center justify-center transition transform hover:scale-110 active:scale-95 border-2 border-amber-300 group" aria-label="카카오톡 문의">
     <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
