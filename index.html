@@ -2,7 +2,7 @@
 <html lang="ko" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>진성공구철물 · 진성전기조명 | 안성기계공구상가 공구·전기자재 전문 도매유통</title>
   <meta name="description" content="안성기계공구상가 내 대형 실재고 보유. 건축토목철물, 볼트앙카, 디월트·밀워키 전동공구, 수공구, LS산전 누전차단기, CV전선, 초경 롱홀소 B2B 도매 납품. 매일 아침 07:00 조기오픈, 당일 현장 픽업 및 직배송. 문의: 031-671-0409 / 031-671-0409">
   <meta name="keywords" content="안성공구, 안성철물, 안성전기, 안성조명, 안성기계공구상가, 진성공구철물, 진성전기조명, 건축철물, 토목철물, LS산전 차단기, 누전차단기, 초경홀소, 디월트, 밀워키, 수공구, 안성 공구단지">
@@ -143,7 +143,7 @@
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-900 antialiased selection:bg-amber-400 selection:text-slate-900 pb-20 md:pb-0">
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-amber-400 selection:text-slate-900 pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-0">
 
   <!-- Top Announcement Bar -->
   <div class="bg-amber-500 text-slate-950 font-semibold text-xs md:text-sm py-2 px-4 shadow-sm">
@@ -247,6 +247,10 @@
           <i data-lucide="smartphone" class="w-4 h-4"></i>
           직통 상담 연결 (010-3784-7643)
         </a>
+        <button onclick="toggleChatbot(); toggleMobileMenu();" class="w-full py-2.5 bg-amber-500/10 border border-amber-500/40 text-amber-500 hover:bg-amber-500/20 font-bold rounded-lg text-center flex items-center justify-center gap-2 transition">
+          <i data-lucide="bot" class="w-4 h-4"></i>
+          24h AI 실시간 상담사 대화
+        </button>
       </div>
     </div>
   </header>
@@ -1050,7 +1054,7 @@
   </footer>
 
   <!-- Floating AI Chatbot Button (Desktop & Mobile) -->
-  <button id="chatbot-toggle-btn" onclick="toggleChatbot()" class="fixed bottom-36 right-4 md:bottom-24 md:right-8 z-40 h-13 px-4 py-2.5 rounded-full bg-slate-900/95 hover:bg-slate-800 text-white shadow-2xl flex items-center gap-2.5 transition transform hover:scale-105 active:scale-95 border-2 border-amber-500/80 group backdrop-blur-sm" aria-label="24시간 AI 상담">
+  <button id="chatbot-toggle-btn" onclick="toggleChatbot()" class="fixed bottom-[calc(9.2rem+env(safe-area-inset-bottom))] right-4 md:bottom-24 md:right-8 z-40 h-13 px-4 py-2.5 rounded-full bg-slate-900/95 hover:bg-slate-800 text-white shadow-2xl flex items-center gap-2.5 transition transform hover:scale-105 active:scale-95 border-2 border-amber-500/80 group backdrop-blur-sm" aria-label="24시간 AI 상담">
     <div class="relative flex items-center justify-center">
       <i data-lucide="bot" class="w-5 h-5 text-amber-400"></i>
       <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-slate-900 animate-pulse"></span>
@@ -1059,7 +1063,7 @@
   </button>
 
   <!-- AI Chatbot Window Widget -->
-  <div id="chatbot-widget" class="fixed bottom-20 right-4 sm:bottom-24 sm:right-8 z-50 hidden w-[calc(100vw-2rem)] sm:w-[390px] h-[540px] max-h-[82vh] bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+  <div id="chatbot-widget" class="fixed bottom-[calc(4.8rem+env(safe-area-inset-bottom))] right-2 sm:bottom-24 sm:right-8 z-50 hidden w-[calc(100vw-1rem)] sm:w-[390px] h-[min(540px,76dvh)] bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
     <!-- Header -->
     <div class="p-3.5 bg-slate-950 border-b border-slate-800 flex items-center justify-between shrink-0">
       <div class="flex items-center gap-2.5">
@@ -1075,8 +1079,8 @@
           <p class="text-[10px] text-slate-400">차단기·전선·수공구·영업시간 즉시 응대</p>
         </div>
       </div>
-      <button onclick="toggleChatbot()" class="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
-        <i data-lucide="x" class="w-4 h-4"></i>
+      <button onclick="toggleChatbot()" class="p-2 -mr-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition active:scale-95" aria-label="채팅창 닫기">
+        <i data-lucide="x" class="w-5 h-5"></i>
       </button>
     </div>
 
@@ -1131,14 +1135,14 @@
         </button>
       </form>
       <div class="mt-1.5 flex items-center justify-between text-[10px] text-slate-500 px-1">
-        <span>직통 상담: 031-671-0409</span>
+        <span>매장: 031-671-0409 | 직통: 010-3784-7643</span>
         <span>OpenCode AI 연동</span>
       </div>
     </div>
   </div>
 
   <!-- Floating KakaoTalk Quick Button (Desktop & Mobile) -->
-  <button onclick="openKakaoInquiry()" class="fixed bottom-20 right-4 md:bottom-8 md:right-8 z-40 w-14 h-14 rounded-full bg-[#FEE500] hover:bg-[#FADA0A] text-[#191919] shadow-2xl flex items-center justify-center transition transform hover:scale-110 active:scale-95 border-2 border-amber-300 group" aria-label="카카오톡 문의">
+  <button onclick="openKakaoInquiry()" class="fixed bottom-[calc(5rem+env(safe-area-inset-bottom))] right-4 md:bottom-8 md:right-8 z-40 w-14 h-14 rounded-full bg-[#FEE500] hover:bg-[#FADA0A] text-[#191919] shadow-2xl flex items-center justify-center transition transform hover:scale-110 active:scale-95 border-2 border-amber-300 group" aria-label="카카오톡 문의">
     <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
       <path d="M12 3c-5.523 0-10 3.582-10 8 0 2.879 1.916 5.409 4.805 6.787-.212.775-.77 2.812-.88 3.242-.136.536.196.529.412.385.17-.113 2.703-1.84 3.793-2.585.617.091 1.25.138 1.892.138 5.523 0 10-3.582 10-8s-4.477-8-10-8z"/>
     </svg>
@@ -1148,26 +1152,26 @@
   </button>
 
   <!-- Floating Action Buttons for Mobile -->
-  <div class="fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-slate-200 p-2 md:hidden z-40 shadow-xl grid grid-cols-5 gap-1">
-    <a href="tel:0316710409" class="py-2.5 bg-slate-900 text-white font-bold text-[10px] rounded-lg flex flex-col items-center justify-center gap-1 shadow-sm">
+  <div class="fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-slate-200 p-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] md:hidden z-40 shadow-xl grid grid-cols-5 gap-1">
+    <a href="tel:0316710409" class="py-2.5 bg-slate-900 text-white font-bold text-[10px] rounded-lg flex flex-col items-center justify-center gap-1 shadow-sm active:scale-95 transition">
       <i data-lucide="phone-call" class="w-4 h-4 text-amber-400"></i>
       <span>전화문의</span>
     </a>
-    <button onclick="openKakaoInquiry()" class="py-2.5 bg-[#FEE500] text-[#191919] font-bold text-[10px] rounded-lg flex flex-col items-center justify-center gap-1 shadow-sm">
+    <button onclick="openKakaoInquiry()" class="py-2.5 bg-[#FEE500] text-[#191919] font-bold text-[10px] rounded-lg flex flex-col items-center justify-center gap-1 shadow-sm active:scale-95 transition">
       <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
         <path d="M12 3c-5.523 0-10 3.582-10 8 0 2.879 1.916 5.409 4.805 6.787-.212.775-.77 2.812-.88 3.242-.136.536.196.529.412.385.17-.113 2.703-1.84 3.793-2.585.617.091 1.25.138 1.892.138 5.523 0 10-3.582 10-8s-4.477-8-10-8z"/>
       </svg>
       <span>카톡문의</span>
     </button>
-    <a href="sms:0316710409?body=안녕하세요 진성공구철물 자재 견적 문의드립니다." class="py-2.5 bg-slate-800 text-white font-bold text-[10px] rounded-lg flex flex-col items-center justify-center gap-1 shadow-sm">
+    <a href="sms:01037847643?body=안녕하세요 진성공구철물 자재 견적 문의드립니다." class="py-2.5 bg-slate-800 text-white font-bold text-[10px] rounded-lg flex flex-col items-center justify-center gap-1 shadow-sm active:scale-95 transition">
       <i data-lucide="message-square" class="w-4 h-4 text-sky-400"></i>
       <span>문자견적</span>
     </a>
-    <button onclick="openQuoteModal()" class="py-2.5 bg-amber-500 text-slate-950 font-extrabold text-[10px] rounded-lg flex flex-col items-center justify-center gap-1 shadow-sm">
+    <button onclick="openQuoteModal()" class="py-2.5 bg-amber-500 text-slate-950 font-extrabold text-[10px] rounded-lg flex flex-col items-center justify-center gap-1 shadow-sm active:scale-95 transition">
       <i data-lucide="file-text" class="w-4 h-4"></i>
       <span>견적신청</span>
     </button>
-    <a href="https://blog.naver.com/jinsungtool_" target="_blank" rel="noopener noreferrer" class="py-2.5 bg-emerald-600 text-white font-bold text-[10px] rounded-lg flex flex-col items-center justify-center gap-1 shadow-sm">
+    <a href="https://blog.naver.com/jinsungtool_" target="_blank" rel="noopener noreferrer" class="py-2.5 bg-emerald-600 text-white font-bold text-[10px] rounded-lg flex flex-col items-center justify-center gap-1 shadow-sm active:scale-95 transition">
       <i data-lucide="book-open" class="w-4 h-4"></i>
       <span>블로그</span>
     </a>
@@ -1328,9 +1332,9 @@
           </svg>
           <span>카카오톡 연결하기</span>
         </button>
-        <a href="sms:0316710409" class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold rounded-xl text-center text-xs flex items-center justify-center gap-2 transition">
+        <a href="sms:01037847643?body=안녕하세요 진성공구철물 카카오톡 대신 문자로 문의드립니다." class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold rounded-xl text-center text-xs flex items-center justify-center gap-2 transition">
           <i data-lucide="message-square" class="w-4 h-4 text-sky-500"></i>
-          <span>문자(SMS)로 직통 문의하기</span>
+          <span>문자(SMS)로 직통 문의하기 (010-3784-7643)</span>
         </a>
       </div>
     </div>
