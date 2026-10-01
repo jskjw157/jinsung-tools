@@ -98,7 +98,7 @@ function handleQuoteSubmit(e) {
   }
 
   const quoteMessage = `[진성공구철물 도매견적 신청]\n• 상호/현장: ${company || '현장'}\n• 담당자: ${contact || '담당자'}\n• 연락처: ${phone}\n• 수령방식: ${deliveryType}\n\n[신청품목]\n${items}`;
-  const targetNumber = '0316710409';
+  const targetNumber = '01037847643';
 
   // 1. Save to localStorage as backup record
   try {
@@ -146,7 +146,7 @@ function sendQuoteViaSms() {
   }
 
   const message = `[진성공구철물 견적문의]\n• 상호/현장: ${company || '현장'}\n• 담당자: ${contact || '담당자'}\n• 연락처: ${phone}\n• 수령방식: ${deliveryType}\n\n[문의품목]\n${items}`;
-  const targetNumber = '0316710409';
+  const targetNumber = '01037847643';
   
   if (navigator.clipboard) {
     navigator.clipboard.writeText(message).catch(() => {});
@@ -226,17 +226,17 @@ function launchKakaoTalk() {
       pcGuide.classList.add('ring-2', 'ring-amber-500');
       setTimeout(() => pcGuide.classList.remove('ring-2', 'ring-amber-500'), 3000);
     }
-    showToast('매장 대표 번호(031-671-0409)가 복사되었습니다! PC 카톡 [친구 추가 > 연락처]에 붙여넣어 주세요.');
+    showToast('대표님 직통 번호(010-3784-7643)가 복사되었습니다! PC 카톡 [친구 추가 > 연락처]에 붙여넣어 주세요.');
   }
 }
 
 function copyKakaoNumber() {
-  const num = '031-671-0409';
+  const num = '010-3784-7643';
   if (navigator.clipboard) {
     navigator.clipboard.writeText(num).then(() => {
-      showToast('매장 대표 번호(031-671-0409)가 복사되었습니다!');
+      showToast('대표님 직통 번호(010-3784-7643)가 복사되었습니다! (매장 유선: 031-671-0409)');
     }).catch(() => {
-      showToast('번호: 031-671-0409');
+      showToast('직통: 010-3784-7643 / 매장: 031-671-0409');
     });
   }
 }
@@ -411,10 +411,15 @@ function appendChatMessage(role, text) {
       </div>
       <div class="bg-slate-800 border border-slate-700/80 rounded-2xl rounded-tl-sm p-3 text-slate-200 space-y-2 max-w-[88%] leading-relaxed shadow-sm">
         <div>${formattedHtml}</div>
-        <div class="pt-1.5 border-t border-slate-700/60 flex items-center gap-2">
+        <div class="pt-1.5 border-t border-slate-700/60 flex flex-wrap items-center gap-2">
           <a href="tel:0316710409" class="inline-flex items-center gap-1 text-[11px] font-bold text-amber-400 hover:text-amber-300">
             <i data-lucide="phone-call" class="w-3 h-3"></i>
-            <span>031-671-0409 매장 전화 연결</span>
+            <span>031-671-0409 (매장)</span>
+          </a>
+          <span class="text-slate-600">|</span>
+          <a href="tel:01037847643" class="inline-flex items-center gap-1 text-[11px] font-bold text-sky-400 hover:text-sky-300">
+            <i data-lucide="smartphone" class="w-3 h-3"></i>
+            <span>010-3784-7643 (직통)</span>
           </a>
         </div>
       </div>
